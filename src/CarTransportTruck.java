@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class CarTransportTruck extends Car {
     Flatbed flatbed = new Flatbed();
-    VeichleStorage cars = new VeichleStorage(8);
+    VeichleStorage carStorage = new VeichleStorage(8);
     State rampState = State.HIGH;
     enum State{
         HIGH,
@@ -26,13 +26,13 @@ public class CarTransportTruck extends Car {
 
     public void loadCar(Car car, double weight){ //Måste checka storleken / Lägga till Weight i Car
         if(weight < 5000 && rampState == State.LOW && Math.abs(this.getX() - car.getX()) < 5 && Math.abs(this.getY() - car.getY()) < 5){
-            cars.load(car);
+            carStorage.load(car);
         }
     }
 
     public void unloadCar(){
         if(rampState == State.LOW && getCurrentSpeed() < 0.001){
-            Car car = cars.unload();
+            Car car = carStorage.unload();
             car.setX(getX()); // behövs inte om bilarnas position är samma som CarTransportTrucken
             car.setY(getY() - 5);
         }
@@ -40,7 +40,7 @@ public class CarTransportTruck extends Car {
 
     public void moveWithFlatbed(){
         move();
-        cars.updatePositions(getX(),getY());
+        carStorage.updatePositions(getX(),getY());
     }
 
 

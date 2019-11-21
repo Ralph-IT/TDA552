@@ -11,7 +11,10 @@ public class Scania extends Car {
         super(nrDoors, enginePower, color, modelName);
     }
 
-
+    /**
+     * Method for calculating the trucks speed factor using its engine power
+     * @return the trucks speed factor
+     */
 
     public double speedFactor(){
         return getEnginePower() * 0.01;

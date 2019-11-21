@@ -4,10 +4,18 @@ import java.util.List;
 public class VeichleStorage {
     private int maxStorage;
     private List<Car> storedCars = new ArrayList<>(); //GENERISK LISTA
+    private UnloadOrder unloadOrder;
+
+    enum UnloadOrder{
+        FirstInFirstOut, LastInFirstOut, Selected
+    }
 
 
-    public VeichleStorage(int maxStorage) {
+
+
+    public VeichleStorage(int maxStorage, UnloadOrder unloadOrder) {
         this.maxStorage = maxStorage;
+        this.unloadOrder = unloadOrder;
     }
 
 
@@ -16,7 +24,16 @@ public class VeichleStorage {
     }
 
     public Car unload(){
-        return storedCars.remove(storedCars.size() - 1); //Tar bort den senast inlaggda
+        if(unloadOrder == UnloadOrder.FirstInFirstOut) {
+            return storedCars.remove(0);
+        }
+        else if(unloadOrder == UnloadOrder.LastInFirstOut){
+            return storedCars.remove(storedCars.size() - 1);
+
+        }
+        else {
+            return storedCars.remove(storedCars.size() - 1);
+        }
     }
 
     public void updatePositions(double x, double y){ //använder setX och setY
