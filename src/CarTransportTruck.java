@@ -2,15 +2,15 @@ import java.awt.*;
 
 public class CarTransportTruck extends Car {
     Flatbed flatbed = new Flatbed();
-    VeichleStorage carStorage = new VeichleStorage(8);
+    VeichleStorage carStorage = new VeichleStorage(6, VeichleStorage.UnloadOrder.FirstInFirstOut);
     State rampState = State.HIGH;
     enum State{
         HIGH,
         LOW
     }
 
-    public CarTransportTruck(int nrDoors, double enginePower, Color color, String modelName) {
-        super(nrDoors, enginePower, color, modelName);
+    public CarTransportTruck(String modelName) {
+        super(2, 100, Color.blue, "Brunte", 5);
     }
 
     public void raiseRamp(){
@@ -24,9 +24,10 @@ public class CarTransportTruck extends Car {
         }
     }
 
-    public void loadCar(Car car, double weight){ //Måste checka storleken / Lägga till Weight i Car
-        if(weight < 5000 && rampState == State.LOW && Math.abs(this.getX() - car.getX()) < 5 && Math.abs(this.getY() - car.getY()) < 5){
+    public void loadCar(Car car){ //Måste checka storleken / Lägga till Weight i Car
+        if(car.getSizeClass() < 4 && rampState == State.LOW && Math.abs(this.getX() - car.getX()) < 5 && Math.abs(this.getY() - car.getY()) < 5){
             carStorage.load(car);
+            car.setCargo(true);
         }
     }
 

@@ -36,11 +36,16 @@ public abstract class Car implements IMovable{
      */
     private int direction = 2;
 
-    public Car(int nrDoors, double enginePower, Color color, String modelName) {
+    private int sizeClass;
+
+    private boolean isCargo = false;
+
+    public Car(int nrDoors, double enginePower, Color color, String modelName, int sizeClass) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        this.sizeClass = sizeClass;
         stopEngine();
     }
 
@@ -69,7 +74,9 @@ public abstract class Car implements IMovable{
      * method that starts the car's engine by setting it's current speed to 1
      */
     public void startEngine(){
-        currentSpeed = 1;
+        if(isCargo = false) {
+            currentSpeed = 1;
+        }
     }
     /**
      * method that stops the car's engine by setting it's current speed to 0
@@ -83,15 +90,17 @@ public abstract class Car implements IMovable{
      */
     @Override
     public void move() {
-       if(direction == 0){
-           y = y - currentSpeed;
-       }else if(direction == 1 || direction == -3){
-            x = x + currentSpeed;
-       }else if(direction == 2 || direction == -2) {
-           y = y + currentSpeed;
-       }else if(direction == 3 || direction == -1) {
-           x = x - currentSpeed;
-       }
+        if(isCargo = false) {
+            if (direction == 0) {
+                y = y - currentSpeed;
+            } else if (direction == 1 || direction == -3) {
+                x = x + currentSpeed;
+            } else if (direction == 2 || direction == -2) {
+                y = y + currentSpeed;
+            } else if (direction == 3 || direction == -1) {
+                x = x - currentSpeed;
+            }
+        }
     }
 /**
 *Turns car left by changing the variable direction
@@ -166,6 +175,18 @@ public abstract class Car implements IMovable{
 
     public void setY(double y) {
         this.y = y;
+    }
+
+    public int getSizeClass() {
+        return sizeClass;
+    }
+
+    public boolean isCargo() {
+        return isCargo;
+    }
+
+    public void setCargo(boolean cargo) {
+        isCargo = cargo;
     }
 
     public int getDirection() {

@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class VeichleStorage {
+public class VeichleStorage<T extends Car> {
     private int maxStorage;
-    private List<Car> storedCars = new ArrayList<>(); //GENERISK LISTA
+    private List<T> storedVeichle = new ArrayList<>(); //GENERISK LISTA
     private UnloadOrder unloadOrder;
 
     enum UnloadOrder{
@@ -19,28 +19,35 @@ public class VeichleStorage {
     }
 
 
-    public void load(Car car){
-        storedCars.add(car);
+    public void load(T car){
+        storedVeichle.add(car);
     }
 
-    public Car unload(){
+    public T unload(){
         if(unloadOrder == UnloadOrder.FirstInFirstOut) {
-            return storedCars.remove(0);
+            return storedVeichle.remove(0);
         }
         else if(unloadOrder == UnloadOrder.LastInFirstOut){
-            return storedCars.remove(storedCars.size() - 1);
+            return storedVeichle.remove(storedVeichle.size() - 1);
 
         }
         else {
-            return storedCars.remove(storedCars.size() - 1);
+            return storedVeichle.remove(storedVeichle.size() - 1);
         }
     }
 
     public void updatePositions(double x, double y){ //använder setX och setY
-        for(Car car : storedCars){
+        for(Car car : storedVeichle){
             car.setX(x);
             car.setY(y);
         }
     }
+
+    /*
+    Sista punkten
+    Size/fixa så truck inte kan loada trucks
+    Bilar kan inte köra medan de är pålastade.
+
+     */
 
 }

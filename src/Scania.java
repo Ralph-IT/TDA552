@@ -7,8 +7,8 @@ import java.awt.*;
 public class Scania extends Car {
     Flatbed flatbed = new Flatbed();
 
-    public Scania(int nrDoors, double enginePower, Color color, String modelName) {
-        super(nrDoors, enginePower, color, modelName);
+    public Scania() {
+        super(2, 100, Color.red, "Scania", 4);
     }
 
     /**
