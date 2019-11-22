@@ -5,7 +5,7 @@ import java.awt.*;
  */
 
 public class Scania extends Car {
-    Flatbed flatbed = new Flatbed();
+    private Flatbed flatbed = new Flatbed();
 
     public Scania() {
         super(2, 100, Color.red, "Scania", 4);
@@ -37,5 +37,9 @@ public class Scania extends Car {
         if(flatbed.getAngle() > 0 && getCurrentSpeed() < 0.001){
             flatbed.setAngle(flatbed.getAngle() - 2);
         }
+    }
+
+    public Flatbed getFlatbed() {
+        return flatbed;
     }
 }

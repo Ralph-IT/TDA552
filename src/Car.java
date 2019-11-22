@@ -38,7 +38,7 @@ public abstract class Car implements IMovable{
 
     private int sizeClass;
 
-    private boolean isCargo = false;
+    private boolean isStored = false;
 
     public Car(int nrDoors, double enginePower, Color color, String modelName, int sizeClass) {
         this.nrDoors = nrDoors;
@@ -74,7 +74,7 @@ public abstract class Car implements IMovable{
      * method that starts the car's engine by setting it's current speed to 1
      */
     public void startEngine(){
-        if(isCargo = false) {
+        if(isStored = false) {
             currentSpeed = 1;
         }
     }
@@ -90,7 +90,7 @@ public abstract class Car implements IMovable{
      */
     @Override
     public void move() {
-        if(isCargo = false) {
+        if(isStored = false) {
             if (direction == 0) {
                 y = y - currentSpeed;
             } else if (direction == 1 || direction == -3) {
@@ -137,7 +137,7 @@ public abstract class Car implements IMovable{
 
     /**
      * Increases speed by calling the incrementSpeed method if amount is more than or equal to 0 and less than or equal to 1
-     * @param amount the amount you want to gass on a scale 0-1.
+     * @param amount the amount you want to gas on a scale 0-1.
      */
     public void gas(double amount){
         if(amount >= 0 && amount <= 1){
@@ -157,7 +157,7 @@ public abstract class Car implements IMovable{
 
     /**
      * An abstract method to be inherited by subclasses
-     * @return
+     * @return nada
      */
     abstract double speedFactor();
 
@@ -181,12 +181,12 @@ public abstract class Car implements IMovable{
         return sizeClass;
     }
 
-    public boolean isCargo() {
-        return isCargo;
+    public boolean isStored() {
+        return isStored;
     }
 
-    public void setCargo(boolean cargo) {
-        isCargo = cargo;
+    public void setStored(boolean cargo) {
+        isStored = cargo;
     }
 
     public int getDirection() {

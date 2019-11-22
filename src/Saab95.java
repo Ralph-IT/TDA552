@@ -29,7 +29,7 @@ public class Saab95 extends Car{
     }
     /**
      * Returns the Speed Factor of the car depending on the Engine power and trim factor of the car
-     * @return
+     * @return the speedfactor
      */
     public double speedFactor(){
         double turbo = 1;

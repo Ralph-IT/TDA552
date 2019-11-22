@@ -1,3 +1,6 @@
+/**
+ * Class for a flatbed
+ */
 public class Flatbed {
     private double angle = 0;
 
