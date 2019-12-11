@@ -42,8 +42,9 @@ public class CarTransportTruck extends Car {
      * Method for loading a car onto the flatbed
      * @param car the car that is being loaded onto the flatbed
      */
-    public void loadCar(Car car){ //Måste checka storleken / Lägga till Weight i Car
-        if(car.getSizeClass() < 4 && rampState == State.LOW && Math.abs(this.getX() - car.getX()) < 5 && Math.abs(this.getY() - car.getY()) < 5 && car.isStored() == false){
+    public void loadCar(Car car){
+        if(car.getSizeClass() < 4 && rampState == State.LOW && Math.abs(this.getX() - car.getX()) < 5 &&
+                Math.abs(this.getY() - car.getY()) < 5 && car.isStored() == false){
             carStorage.load(car);
             car.setStored(true);
         }

@@ -3,7 +3,7 @@
  * @param <T> Typeparameter that extends the abstract class Car
  */
 public class ServiceStation<T extends Car> {
-    VehicleStorage storage; //new VeichleStorage<Volvo240>(8, VeichleStorage.UnloadOrder.FirstInFirstOut);
+    private VehicleStorage storage; //new VeichleStorage<Volvo240>(8, VeichleStorage.UnloadOrder.FirstInFirstOut);
 
 
 

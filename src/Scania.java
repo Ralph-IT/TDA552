@@ -17,7 +17,10 @@ public class Scania extends Car {
      */
 
     public double speedFactor(){
-        return getEnginePower() * 0.01;
+        if(flatbed.getAngle() == 0){
+            return getEnginePower() * 0.01;
+        }
+        return 0;
     }
 
     /**

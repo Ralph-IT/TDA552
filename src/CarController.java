@@ -21,7 +21,7 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
     // A list of cars, modify if needed
-    ArrayList<ACar> cars = new ArrayList<>();
+    ArrayList<Car> cars = new ArrayList<>();
 
     //methods:
 
@@ -30,6 +30,16 @@ public class CarController {
         CarController cc = new CarController();
 
         cc.cars.add(new Volvo240());
+        Saab95 saab = new Saab95();
+        saab.setY(100);
+        cc.cars.add(saab);
+        Scania scania = new Scania();
+        scania.setY(200);
+        cc.cars.add(scania);
+        Saab95 saab2 = new Saab95();
+        saab2.setY(300);
+        cc.cars.add(saab2);
+
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -40,26 +50,74 @@ public class CarController {
 
     /* Each step the TimerListener moves all the cars in the list and tells the
     * view to update its images. Change this method to your needs.
-    * */
+    */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (ACar car : cars) {
+            for (Car car : cars) {
                 car.move();
-                int x = (int) Math.round(car.getPosition().getX());
-                int y = (int) Math.round(car.getPosition().getY());
-                frame.drawPanel.moveit(x, y);
+                if(car.getX() > 685 || car.getX() < 0 || car.getY() > 350 || car.getY() < 0){
+                    car.setDirection(car.getDirection() + 2);
+                }
+                frame.drawPanel.moveIt(car);
                 // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
             }
+            frame.drawPanel.repaint();
         }
     }
 
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (ACar car : cars
+        for (Car car : cars
                 ) {
             car.gas(gas);
+        }
+    }
+
+    void brake(int amount) {
+        double brake = ((double) amount) / 100;
+        for (Car car : cars
+        ) {
+            car.brake(brake);
+        }
+    }
+    void turboOn() {
+        for (Car car : cars) {
+            if(car instanceof Saab95){
+                ((Saab95) car).setTurboOn();
+            }
+        }
+    }
+
+    void turboOff() {
+        for (Car car : cars) {
+            if(car instanceof Saab95){
+                ((Saab95) car).setTurboOff();
+            }
+        }
+    }
+    void liftBed() {
+        for (Car car : cars) {
+            if(car instanceof Scania){
+                ((Scania) car).raiseFlatbed();
+            }
+        }
+    }
+    void lowerBed() {
+        for (Car car : cars) {
+            if(car instanceof Scania){
+                ((Scania) car).lowerFlatbed();
+            }
+        }
+    }
+    void startAllCars(){
+        for(Car car : cars){
+            car.startEngine();
+        }
+    }
+    void stopAllCars(){
+        for(Car car : cars){
+            car.stopEngine();
         }
     }
 }

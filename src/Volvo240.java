@@ -7,7 +7,7 @@ public class Volvo240 extends Car{
     /**
      * The car's Trim Factor
      */
-    public final static double trimFactor = 1.25;
+    private final static double trimFactor = 1.25;
     
     public Volvo240(){
         super(4, 100, Color.black, "Volvo240", 3);

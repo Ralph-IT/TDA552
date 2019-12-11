@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class VehicleStorage<T extends Car> {
     private int maxStorage;
-    private List<T> storedVeichle = new ArrayList<>(); //GENERISK LISTA
+    private List<T> storedVehicle = new ArrayList<>(); //GENERISK LISTA
     private UnloadOrder unloadOrder;
 
     /**
@@ -16,9 +16,6 @@ public class VehicleStorage<T extends Car> {
     enum UnloadOrder{
         FirstInFirstOut, LastInFirstOut, Selected
     }
-
-
-
 
     public VehicleStorage(int maxStorage, UnloadOrder unloadOrder) {
         this.maxStorage = maxStorage;
@@ -30,8 +27,8 @@ public class VehicleStorage<T extends Car> {
      * @param car the car that is being loaded into the storage
      */
     public void load(T car){
-        if(car.isStored() == false) {
-            storedVeichle.add(car);
+        if(!car.isStored()) {
+            storedVehicle.add(car);
         }
     }
 
@@ -41,14 +38,14 @@ public class VehicleStorage<T extends Car> {
      */
     public T unload(){
         if(unloadOrder == UnloadOrder.FirstInFirstOut) {
-            return storedVeichle.remove(0);
+            return storedVehicle.remove(0);
         }
         else if(unloadOrder == UnloadOrder.LastInFirstOut){
-            return storedVeichle.remove(storedVeichle.size() - 1);
+            return storedVehicle.remove(storedVehicle.size() - 1);
 
         }
         else {
-            return storedVeichle.remove(storedVeichle.size() - 1);
+            return storedVehicle.remove(storedVehicle.size() - 1);
         }
     }
 
@@ -58,14 +55,14 @@ public class VehicleStorage<T extends Car> {
      * @param y the storage's position on the y-axis
      */
     public void updatePositions(double x, double y){ //använder setX och setY
-        for(Car car : storedVeichle){
+        for(Car car : storedVehicle){
             car.setX(x);
             car.setY(y);
         }
     }
 
-    public List<T> getStoredVeichle() {
-        return storedVeichle;
+    public List<T> getStoredVehicle() {
+        return storedVehicle;
     }
 
 

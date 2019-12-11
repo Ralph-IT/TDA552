@@ -6,11 +6,11 @@ public abstract class Car implements IMovable{
     /**
      * Number of doors on the car
      */
-    private int nrDoors; // Number of doors on the car
+    private final int nrDoors; // Number of doors on the car
     /**
      * Engine power of the car
      */
-    private double enginePower; // Engine power of the car
+    private final double enginePower; // Engine power of the car
     /**
      * The current speed of the car
      */
@@ -22,7 +22,7 @@ public abstract class Car implements IMovable{
     /**
      * The car model name
      */
-    private String modelName; // The car model name
+    private final String modelName; // The car model name
     /**
      * The cars position on the x-axis
      */
@@ -34,7 +34,7 @@ public abstract class Car implements IMovable{
     /**
      * The direction the car is facing
      */
-    private int direction = 2;
+    private int direction = 1;
 
     private int sizeClass;
 
@@ -74,7 +74,7 @@ public abstract class Car implements IMovable{
      * method that starts the car's engine by setting it's current speed to 1
      */
     public void startEngine(){
-        if(isStored = false) {
+        if(isStored == false) {
             currentSpeed = 1;
         }
     }
@@ -90,14 +90,14 @@ public abstract class Car implements IMovable{
      */
     @Override
     public void move() {
-        if(isStored = false) {
-            if (direction == 0) {
+        if(!isStored) {
+            if (direction % 4 == 0) {
                 y = y - currentSpeed;
-            } else if (direction == 1 || direction == -3) {
+            } else if (direction % 4 == 1 || direction % 4 == -3) {
                 x = x + currentSpeed;
-            } else if (direction == 2 || direction == -2) {
+            } else if (direction % 4 == 2 || direction % 4 == -2) {
                 y = y + currentSpeed;
-            } else if (direction == 3 || direction == -1) {
+            } else if (direction % 4 == 3 || direction % 4 == -1) {
                 x = x - currentSpeed;
             }
         }
@@ -191,5 +191,13 @@ public abstract class Car implements IMovable{
 
     public int getDirection() {
         return direction;
+    }
+
+    public void setDirection(int direction) {
+        this.direction = direction;
+    }
+
+    public String getModelName() {
+        return modelName;
     }
 }

@@ -2,13 +2,13 @@
  * Class for a flatbed
  */
 public class Flatbed {
-    private double angle = 0;
+    private int angle = 0;
 
-    public double getAngle() {
+    public int getAngle() {
         return angle;
     }
 
-    public void setAngle(double angle) {
+    public void setAngle(int angle) {
         this.angle = angle;
     }
 }

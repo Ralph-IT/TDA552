@@ -16,12 +16,12 @@ public class CarTransportTruckTest {
     public void loadCar() {
         CarTransportTruck transportTruck = new CarTransportTruck("Lamborghini");
         transportTruck.loadCar(new CarTransportTruck("Audi"));
-        assertTrue(transportTruck.getCarStorage().getStoredVeichle().size() == 0); //Ska INTE ha lastat in transportLast
+        assertTrue(transportTruck.getCarStorage().getStoredVehicle().size() == 0); //Ska INTE ha lastat in transportLast
         transportTruck.loadCar(new Volvo240());
-        assertTrue(transportTruck.getCarStorage().getStoredVeichle().size() == 0); //Rampen är inte nere
+        assertTrue(transportTruck.getCarStorage().getStoredVehicle().size() == 0); //Rampen är inte nere
         transportTruck.lowerRamp();
         transportTruck.loadCar(new Volvo240());
-        assertTrue(transportTruck.getCarStorage().getStoredVeichle().size() == 1); //Nu ska den laddas
+        assertTrue(transportTruck.getCarStorage().getStoredVehicle().size() == 1); //Nu ska den laddas
 
 
     }
@@ -34,10 +34,10 @@ public class CarTransportTruckTest {
         transportTruck.startEngine();
         transportTruck.gas(1);
         transportTruck.unloadCar();
-        assertTrue(transportTruck.getCarStorage().getStoredVeichle().size() == 1); //Bilen ska INTE lastas av
+        assertTrue(transportTruck.getCarStorage().getStoredVehicle().size() == 1); //Bilen ska INTE lastas av
         transportTruck.stopEngine();
         transportTruck.unloadCar();
-        assertTrue(transportTruck.getCarStorage().getStoredVeichle().size() == 0); //Bilen ska INTE lastas av
+        assertTrue(transportTruck.getCarStorage().getStoredVehicle().size() == 0); //Bilen ska INTE lastas av
 
 
     }
