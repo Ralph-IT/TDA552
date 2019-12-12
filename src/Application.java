@@ -64,9 +64,12 @@ public class Application {
                     vehicle.setDirection(vehicle.getDirection() + 2);
                 }
                 cc.frame.drawPanel.moveIt(vehicle.getX(), vehicle.getY(), vehicle.getModelName());
+                cc.frame.addLabel(vehicle.getModelName(), vehicle.getCurrentSpeed());
                 // repaint() calls the paintComponent method of the panel
             }
             cc.frame.drawPanel.repaint();
+            cc.frame.updateSpeedLabels();
+
         }
     }
 

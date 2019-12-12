@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="577ce338-4a41-4c82-be73-6c3926f20941" name="Default Changelist" comment="" />
+    <list default="true" id="577ce338-4a41-4c82-be73-6c3926f20941" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TDA552/Application$TimerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TDA552/Application$TimerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TDA552/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TDA552/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TDA552/CarView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TDA552/CarView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TDA552/CarView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TDA552/CarView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TDA552/DrawPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TDA552/DrawPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TDA552/DrawPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TDA552/DrawPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DrawPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrawPanel.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,9 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit4 Test Class" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -31,7 +42,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../block21exercise" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Programmering/GruProg/week1-6/week6" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.19335938" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -60,48 +71,46 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in DIT953-lab1">
-    <configuration name="All in DIT953-lab1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DIT953-lab1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+  <component name="RunManager" selected="Application.Application">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Application" />
+      <module name="TDA552" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CarTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DIT953-lab1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CarTest" />
-      <option name="TEST_OBJECT" value="class" />
+    <configuration name="CarController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CarController" />
+      <module name="TDA552" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Saab95Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CarTransportTruckTest.loadCar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DIT953-lab1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Saab95Test" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Saab95Test.speedFactor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DIT953-lab1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Saab95Test" />
-      <option name="METHOD_NAME" value="speedFactor" />
+      <option name="MAIN_CLASS_NAME" value="CarTransportTruckTest" />
+      <option name="METHOD_NAME" value="loadCar" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Volvo240Test.speedFactor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CarTransportTruckTest.moveWithFlatbed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DIT953-lab1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Volvo240Test" />
-      <option name="METHOD_NAME" value="speedFactor" />
+      <option name="MAIN_CLASS_NAME" value="CarTransportTruckTest" />
+      <option name="METHOD_NAME" value="moveWithFlatbed" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CarTransportTruckTest.unloadCar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DIT953-lab1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CarTransportTruckTest" />
+      <option name="METHOD_NAME" value="unloadCar" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -109,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in DIT953-lab1" />
-        <item itemvalue="JUnit.Saab95Test" />
-        <item itemvalue="JUnit.Volvo240Test.speedFactor" />
-        <item itemvalue="JUnit.Saab95Test.speedFactor" />
-        <item itemvalue="JUnit.CarTest" />
+        <item itemvalue="Application.Application" />
+        <item itemvalue="Application.CarController" />
+        <item itemvalue="JUnit.CarTransportTruckTest.moveWithFlatbed" />
+        <item itemvalue="JUnit.CarTransportTruckTest.unloadCar" />
+        <item itemvalue="JUnit.CarTransportTruckTest.loadCar" />
       </list>
     </recent_temporary>
   </component>

@@ -2,8 +2,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
@@ -19,9 +18,16 @@ public class CarView extends JFrame{
 
     // The controller member
 
+
+
     DrawPanel drawPanel = new DrawPanel(X, Y-240);
 
+    JPanel labelPanel = new JPanel();
+
     JPanel controlPanel = new JPanel();
+
+    ArrayList<CarSpeedLabel> speedLabels = new ArrayList<>();
+
 
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
@@ -47,11 +53,18 @@ public class CarView extends JFrame{
     // TODO: Take a good look and make sure you understand how these methods and components work
     private void initComponents(String title) {
 
+        //controlPanel.add(speedLabel);
+        //for(CarSpeedLabel label : speedLabels){ //kanske måste aktivt lägga in saker i listan. KANSKE INTE BEÖVS
+        //    label.add(label);
+        //}
+
         this.setTitle(title);
-        this.setPreferredSize(new Dimension(X,Y));
+        this.setPreferredSize(new Dimension(X,Y + 40));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         this.add(drawPanel);
+
+
 
 
 
@@ -96,6 +109,8 @@ public class CarView extends JFrame{
         stopButton.setForeground(Color.black);
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(stopButton);
+        this.add(labelPanel);
+
 
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
@@ -111,5 +126,22 @@ public class CarView extends JFrame{
         this.setVisible(true);
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
+
+    void updateSpeedLabels(){
+        //speedLabel.update(modelName + " : " + currentSpeed);
+        labelPanel.removeAll();
+        for (CarSpeedLabel label : speedLabels){
+            labelPanel.add(label);
+        }
+        speedLabels.clear();
+        labelPanel.updateUI();
+
+    }
+
+    void addLabel(String modelName, double currentSpeed){
+        CarSpeedLabel car = new CarSpeedLabel(  modelName + " : " + currentSpeed + "   | ");
+        speedLabels.add(car);
     }
 }

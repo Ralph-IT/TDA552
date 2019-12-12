@@ -11,6 +11,8 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel{
 
+
+
     // Just a single image, TODO: Generalize
     private BufferedImage volvoImage;
     private BufferedImage saabImage;
