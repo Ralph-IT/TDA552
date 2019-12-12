@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -12,112 +11,123 @@ import java.util.ArrayList;
 public class CarController {
     // member fields:
 
-    // The delay (ms) corresponds to 20 updates a sec (hz)
-    private final int delay = 50;
-    // The timer is started with an listener (see below) that executes the statements
-    // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener());
-
-    // The frame that represents this instance View of the MVC pattern
-    CarView frame;
     // A list of cars, modify if needed
-    ArrayList<Car> cars = new ArrayList<>();
+    CarView frame = new CarView("Potifar");
+    ArrayList<Vehicle> vehicles = new ArrayList<>();
 
-    //methods:
-
-    public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
-
-        cc.cars.add(new Volvo240());
-        Saab95 saab = new Saab95();
-        saab.setY(100);
-        cc.cars.add(saab);
-        Scania scania = new Scania();
-        scania.setY(200);
-        cc.cars.add(scania);
-        Saab95 saab2 = new Saab95();
-        saab2.setY(300);
-        cc.cars.add(saab2);
-
-
-        // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
-
-        // Start the timer
-        cc.timer.start();
+    public CarController(){
+        initListeners();
     }
 
-    /* Each step the TimerListener moves all the cars in the list and tells the
-    * view to update its images. Change this method to your needs.
-    */
-    private class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
-                car.move();
-                if(car.getX() > 685 || car.getX() < 0 || car.getY() > 350 || car.getY() < 0){
-                    car.setDirection(car.getDirection() + 2);
-                }
-                frame.drawPanel.moveIt(car);
-                // repaint() calls the paintComponent method of the panel
-            }
-            frame.drawPanel.repaint();
-        }
+    public void addCars(ArrayList<Vehicle> vehicleList){
+        vehicles.addAll(vehicleList);
     }
 
     // Calls the gas method for each car once
     void gas(int amount) {
         double gas = ((double) amount) / 100;
-        for (Car car : cars
+        for (Vehicle vehicle : vehicles
                 ) {
-            car.gas(gas);
+            vehicle.gas(gas);
         }
     }
 
     void brake(int amount) {
         double brake = ((double) amount) / 100;
-        for (Car car : cars
+        for (Vehicle vehicle : vehicles
         ) {
-            car.brake(brake);
+            vehicle.brake(brake);
         }
     }
     void turboOn() {
-        for (Car car : cars) {
-            if(car instanceof Saab95){
-                ((Saab95) car).setTurboOn();
+        for (Vehicle vehicle : vehicles) {
+            if(vehicle instanceof Saab95){
+                ((Saab95) vehicle).setTurboOn();
             }
         }
     }
 
     void turboOff() {
-        for (Car car : cars) {
-            if(car instanceof Saab95){
-                ((Saab95) car).setTurboOff();
+        for (Vehicle vehicle : vehicles) {
+            if(vehicle instanceof Saab95){
+                ((Saab95) vehicle).setTurboOff();
             }
         }
     }
     void liftBed() {
-        for (Car car : cars) {
-            if(car instanceof Scania){
-                ((Scania) car).raiseFlatbed();
+        for (Vehicle vehicle : vehicles) {
+            if(vehicle instanceof Scania){
+                ((Scania) vehicle).raiseFlatbed();
             }
         }
     }
     void lowerBed() {
-        for (Car car : cars) {
-            if(car instanceof Scania){
-                ((Scania) car).lowerFlatbed();
+        for (Vehicle vehicle : vehicles) {
+            if(vehicle instanceof Scania){
+                ((Scania) vehicle).lowerFlatbed();
             }
         }
     }
     void startAllCars(){
-        for(Car car : cars){
-            car.startEngine();
+        for(Vehicle vehicle : vehicles){
+            vehicle.startEngine();
         }
     }
     void stopAllCars(){
-        for(Car car : cars){
-            car.stopEngine();
+        for(Vehicle vehicle : vehicles){
+            vehicle.stopEngine();
         }
+    }
+
+    void initListeners() {
+        frame.gasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gas(frame.gasAmount);
+            }
+        });
+        frame.brakeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                brake(frame.gasAmount);
+            }
+        });
+        frame.turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                turboOn();
+            }
+        });
+        frame.turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                turboOff();
+            }
+        });
+        frame.liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                liftBed();
+            }
+        });
+        frame.lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                lowerBed();
+            }
+        });
+        frame.startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                startAllCars();
+            }
+        });
+        frame.stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                stopAllCars();
+            }
+        });
+
     }
 }

@@ -3,8 +3,7 @@ import java.awt.*;
 /**
  * Class for a truck that transports cars
  */
-public class CarTransportTruck extends Car {
-    private Flatbed flatbed = new Flatbed();
+public class CarTransportTruck extends Truck {
     private VehicleStorage carStorage = new VehicleStorage(6, VehicleStorage.UnloadOrder.FirstInFirstOut);
     private State rampState = State.HIGH;
 
@@ -16,25 +15,25 @@ public class CarTransportTruck extends Car {
         LOW
     }
 
-    public CarTransportTruck(String modelName) {
+    public CarTransportTruck() {
         super(2, 100, Color.blue, "Brunte", 5);
     }
 
     /**
      * Method for raising the ramp
      */
-    public void raiseRamp(){
+    public void raiseFlatbed(){
         rampState = State.HIGH;
-        flatbed.setAngle(0);
+        getFlatbed().setAngle(0);
     }
 
     /**
      * Method for lowering the ramp
      */
-    public void lowerRamp(){ //Kanske göra till boolean? ger false om inte lyckas
+    public void lowerFlatbed(){ //Kanske göra till boolean? ger false om inte lyckas
         if(getCurrentSpeed() < 0.001) {
             rampState = State.LOW;
-            flatbed.setAngle(-70);
+            getFlatbed().setAngle(-70);
         }
     }
 
@@ -55,7 +54,7 @@ public class CarTransportTruck extends Car {
      */
     public void unloadCar(){
         if(rampState == State.LOW && getCurrentSpeed() < 0.001){
-            Car car = carStorage.unload();
+            Vehicle car = carStorage.unload();
             car.setY(getY() - 5);
         }
     }
@@ -77,9 +76,6 @@ public class CarTransportTruck extends Car {
         return getEnginePower() * 0.01;
     }
 
-    public Flatbed getFlatbed() {
-        return flatbed;
-    }
 
     public VehicleStorage getCarStorage() {
         return carStorage;

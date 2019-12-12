@@ -4,8 +4,7 @@ import java.awt.*;
  * A class for Scania Trucks
  */
 
-public class Scania extends Car {
-    private Flatbed flatbed = new Flatbed();
+public class Scania extends Truck {
 
     public Scania() {
         super(2, 100, Color.red, "Scania", 4);
@@ -17,7 +16,7 @@ public class Scania extends Car {
      */
 
     public double speedFactor(){
-        if(flatbed.getAngle() == 0){
+        if(getFlatbed().getAngle() == 0){
             return getEnginePower() * 0.01;
         }
         return 0;
@@ -27,8 +26,8 @@ public class Scania extends Car {
      * Raises the flatbed by increasing its angle
      */
     public void raiseFlatbed(){
-        if(flatbed.getAngle() < 70 && getCurrentSpeed() < 0.001){
-            flatbed.setAngle(flatbed.getAngle() + 2);
+        if(getFlatbed().getAngle() < 70 && getCurrentSpeed() < 0.001){
+            getFlatbed().setAngle(getFlatbed().getAngle() + 2);
         }
     }
 
@@ -37,12 +36,9 @@ public class Scania extends Car {
      */
 
     public void lowerFlatbed(){
-        if(flatbed.getAngle() > 0 && getCurrentSpeed() < 0.001){
-            flatbed.setAngle(flatbed.getAngle() - 2);
+        if(getFlatbed().getAngle() > 0 && getCurrentSpeed() < 0.001){
+            getFlatbed().setAngle(getFlatbed().getAngle() - 2);
         }
     }
 
-    public Flatbed getFlatbed() {
-        return flatbed;
-    }
 }

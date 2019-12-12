@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,30 +15,16 @@ public class DrawPanel extends JPanel{
     private BufferedImage volvoImage;
     private BufferedImage saabImage;
     private BufferedImage scaniaImage;
-    // To keep track of a singel cars position
-    private Point volvoPoint = new Point();
-    private Point saabPoint = new Point();
-    private Point scaniaPoint = new Point();
 
-    private ArrayList<Car> carsToDraw = new ArrayList<>();
+    private ArrayList<Point> positions = new ArrayList<>();
+    private ArrayList<String> modelNames = new ArrayList<>();
     private Map<String, BufferedImage> imageMap;
 
 
     // TODO: Make this genereal for all cars
-    void moveIt(Car car){
-       /* if(car instanceof Volvo240) {
-            volvoPoint.x = x;
-            volvoPoint.y = y;
-        }
-        else if(car instanceof Saab95){
-            saabPoint.x = x;
-            saabPoint.y = y;
-        }
-        else if(car instanceof Scania){
-            scaniaPoint.x = x;
-            scaniaPoint.y = y;
-        }*/
-       carsToDraw.add(car);
+    void moveIt(double x, double y, String modelName){
+        positions.add(new Point((int) x, (int) y));
+        modelNames.add(modelName);
     }
 
     // Initializes the panel and reads the images
@@ -80,9 +65,10 @@ public class DrawPanel extends JPanel{
         g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
          */
 
-        for(Car car: carsToDraw){
-            g.drawImage(imageMap.get(car.getModelName()), (int)car.getX(), (int) car.getY(), null);
+        for(int i = 0; i < positions.size(); i++){
+            g.drawImage(imageMap.get(modelNames.get(i)), (int)positions.get(i).getX(), (int)positions.get(i).getY(), null);
         }
-
+        modelNames.clear();
+        positions.clear();
     }
 }

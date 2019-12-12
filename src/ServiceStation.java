@@ -2,27 +2,27 @@
  * Class for a car service station
  * @param <T> Typeparameter that extends the abstract class Car
  */
-public class ServiceStation<T extends Car> {
+public class ServiceStation<T extends Vehicle> {
     private VehicleStorage storage; //new VeichleStorage<Volvo240>(8, VeichleStorage.UnloadOrder.FirstInFirstOut);
 
 
 
-    public ServiceStation(int maxCars){
-        this.storage = new VehicleStorage<T>(maxCars, VehicleStorage.UnloadOrder.FirstInFirstOut);
+    public ServiceStation(int maxVehicles){
+        this.storage = new VehicleStorage<T>(maxVehicles, VehicleStorage.UnloadOrder.FirstInFirstOut);
     }
 
     /**
      * method for loading a car into the service station
-     * @param car the car that needs service
+     * @param vehicle the car that needs service
      */
-    public void loadCar(T car){
-        storage.load(car);
+    public void loadVehicle(T vehicle){
+        storage.load(vehicle);
     }
 
     /**
      * method for unloading a car from the service station
      */
-    public void unloadCar(){
+    public void unloadVehicle(){
         storage.unload();
 
     }

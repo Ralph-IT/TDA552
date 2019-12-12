@@ -5,7 +5,7 @@ import java.util.List;
  * Class for a vehicle storage
  * @param <T> Typeparameter that extends the abstract class Car
  */
-public class VehicleStorage<T extends Car> {
+public class VehicleStorage<T extends Vehicle> {
     private int maxStorage;
     private List<T> storedVehicle = new ArrayList<>(); //GENERISK LISTA
     private UnloadOrder unloadOrder;
@@ -24,11 +24,11 @@ public class VehicleStorage<T extends Car> {
 
     /**
      * method for loading a vehicle into a storage
-     * @param car the car that is being loaded into the storage
+     * @param vehicle the car that is being loaded into the storage
      */
-    public void load(T car){
-        if(!car.isStored()) {
-            storedVehicle.add(car);
+    public void load(T vehicle){
+        if(!vehicle.isStored()) {
+            storedVehicle.add(vehicle);
         }
     }
 
@@ -55,9 +55,9 @@ public class VehicleStorage<T extends Car> {
      * @param y the storage's position on the y-axis
      */
     public void updatePositions(double x, double y){ //använder setX och setY
-        for(Car car : storedVehicle){
-            car.setX(x);
-            car.setY(y);
+        for(Vehicle vehicle : storedVehicle){
+            vehicle.setX(x);
+            vehicle.setY(y);
         }
     }
 
