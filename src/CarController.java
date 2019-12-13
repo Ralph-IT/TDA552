@@ -79,6 +79,24 @@ public class CarController {
         }
     }
 
+    void addCar(int size){
+        if(vehicles.size() < 10) {
+            vehicles.add(VehicleFactory.createVolvo(size * 100));
+        }
+    }
+
+    void removeCar(){
+        if (vehicles.size() > 0) {
+            vehicles.remove(vehicles.size() - 1);
+        }
+    }
+
+
+
+
+
+
+
     void initListeners() {
         frame.gasButton.addActionListener(new ActionListener() {
             @Override
@@ -126,6 +144,24 @@ public class CarController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 stopAllCars();
+            }
+        });
+        frame.addCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        frame.addCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addCar(vehicles.size());
+            }
+        });
+        frame.removeCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                removeCar();
             }
         });
 

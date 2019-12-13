@@ -15,7 +15,7 @@ public class Application {
     CarController cc;
 
     // A list of cars, modify if needed
-    ArrayList<Vehicle> vehicles = new ArrayList<>();
+    ArrayList<Vehicle> vehicles;
 
 
     public CarController getCc() {
@@ -35,6 +35,7 @@ public class Application {
     public static void main(String[] args) {
         // Instance of this class
         Application app = new Application(new CarController());
+        app.vehicles = app.cc.vehicles;
 
         app.vehicles.add(VehicleFactory.createVolvo());
         Saab95 saab = VehicleFactory.createSaab();
@@ -43,11 +44,7 @@ public class Application {
         Scania scania = VehicleFactory.createScania();
         scania.setY(200);
         app.vehicles.add(scania);
-        Saab95 saab2 = VehicleFactory.createSaab();
-        saab2.setY(300);
-        app.vehicles.add(saab2);
 
-        app.cc.addCars(app.getVehicles());
 
         // Start the timer
         app.timer.start();
