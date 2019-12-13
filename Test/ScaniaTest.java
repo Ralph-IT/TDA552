@@ -1,4 +1,6 @@
 import static org.junit.Assert.*;
+
+import Modell.Scania;
 import org.junit.Test;
 
 public class ScaniaTest {

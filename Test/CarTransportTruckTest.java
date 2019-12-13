@@ -3,7 +3,7 @@ import org.junit.Test;
 public class CarTransportTruckTest {
     @Test
     public void lowerRampAndRaiseRamp() {
-        CarTransportTruck transportTruck = new CarTransportTruck("Lamborghini");
+        Modell.CarTransportTruck transportTruck = new Modell.CarTransportTruck("Lamborghini");
         assertTrue(transportTruck.getFlatbed().getAngle() < 0.001);
         transportTruck.raiseFlatbed();
         assertTrue(transportTruck.getFlatbed().getAngle() > 69.9);
@@ -14,13 +14,13 @@ public class CarTransportTruckTest {
 
    @Test
     public void loadCar() {
-        CarTransportTruck transportTruck = new CarTransportTruck("Lamborghini");
-        transportTruck.loadCar(new CarTransportTruck());
+        Modell.CarTransportTruck transportTruck = new Modell.CarTransportTruck("Lamborghini");
+        transportTruck.loadCar(new Modell.CarTransportTruck());
         assertTrue(transportTruck.getCarStorage().getStoredVehicle().size() == 0); //Ska INTE ha lastat in transportLast
-        transportTruck.loadCar(new Volvo240());
+        transportTruck.loadCar(new Modell.Volvo240());
         assertTrue(transportTruck.getCarStorage().getStoredVehicle().size() == 0); //Rampen är inte nere
         transportTruck.lowerFlatbed();
-        transportTruck.loadCar(new Volvo240());
+        transportTruck.loadCar(new Modell.Volvo240());
         assertTrue(transportTruck.getCarStorage().getStoredVehicle().size() == 1); //Nu ska den laddas
 
 
@@ -28,9 +28,9 @@ public class CarTransportTruckTest {
 
     @Test
     public void unloadCar() {
-        CarTransportTruck transportTruck = new CarTransportTruck("McLaren");
+        Modell.CarTransportTruck transportTruck = new Modell.CarTransportTruck("McLaren");
         transportTruck.lowerFlatbed();
-        transportTruck.loadCar(new Volvo240());
+        transportTruck.loadCar(new Modell.Volvo240());
         transportTruck.startEngine();
         transportTruck.gas(1);
         transportTruck.unloadCar();
@@ -44,9 +44,9 @@ public class CarTransportTruckTest {
 
     @Test
     public void moveWithFlatbed() {
-        CarTransportTruck transportTruck = new CarTransportTruck("Bugatti");
+        Modell.CarTransportTruck transportTruck = new Modell.CarTransportTruck("Bugatti");
         transportTruck.lowerFlatbed();
-        Volvo240 volvo = new Volvo240();
+        Modell.Volvo240 volvo = new Modell.Volvo240();
         transportTruck.loadCar(volvo);
         transportTruck.startEngine();
         transportTruck.gas(1);
