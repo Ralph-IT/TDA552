@@ -81,7 +81,7 @@ public class CarController {
 
     void addCar(int size){
         if(vehicles.size() < 10) {
-            vehicles.add(VehicleFactory.createVolvo(size * 100));
+            vehicles.add(VehicleFactory.createSaab(size * 100));
         }
     }
 

@@ -22,11 +22,11 @@ public class CarView extends JFrame{
 
     DrawPanel drawPanel = new DrawPanel(X, Y-240);
 
-    JPanel labelPanel = new JPanel();
+    CarSpeedPanel labelPanel = new CarSpeedPanel();
 
     JPanel controlPanel = new JPanel();
 
-    ArrayList<CarSpeedLabel> speedLabels = new ArrayList<>();
+
 
 
     JPanel gasPanel = new JPanel();
@@ -136,6 +136,8 @@ public class CarView extends JFrame{
 
     void updateSpeedLabels(){
         //speedLabel.update(modelName + " : " + currentSpeed);
+        labelPanel.updateSpeedLabels();
+        /*
         labelPanel.removeAll();
         for (CarSpeedLabel label : speedLabels){
             labelPanel.add(label);
@@ -143,10 +145,16 @@ public class CarView extends JFrame{
         speedLabels.clear();
         labelPanel.updateUI();
 
+         */
+
     }
 
     void addLabel(String modelName, double currentSpeed){
+        labelPanel.addLabel(modelName, currentSpeed);
+        /*
         CarSpeedLabel car = new CarSpeedLabel(  modelName + " : " + currentSpeed + "   | ");
         speedLabels.add(car);
+
+         */
     }
 }
